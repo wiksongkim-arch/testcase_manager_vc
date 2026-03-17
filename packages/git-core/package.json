@@ -1,0 +1,27 @@
+{
+  "name": "@testcase-manager/git-core",
+  "version": "0.1.0",
+  "description": "Git operations core library for TestCase Manager",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.4",
+    "isomorphic-git": "^1.37.4"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.19.37",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "git",
+    "isomorphic-git",
+    "testcase-manager"
+  ],
+  "license": "MIT"
+}
