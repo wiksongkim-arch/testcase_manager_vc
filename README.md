@@ -1,0 +1,2 @@
+# testcase_manager_vc
+配合VScode插件实现测试用例代码式迭代的多人协作用例管理平台
