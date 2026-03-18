@@ -15,9 +15,9 @@ function getProjectRepoPath(projectId: string): string {
 }
 
 /**
- * POST /api/git/:projectId/commit - Commit changes
+ * POST /commit - Commit changes
  */
-router.post('/:projectId/commit', async (req, res, next) => {
+router.post('/commit', async (req, res, next) => {
   try {
     const { projectId } = req.params;
     const { message, author } = req.body;
@@ -63,7 +63,7 @@ router.post('/:projectId/commit', async (req, res, next) => {
 });
 
 /**
- * POST /api/git/:projectId/push - Push to remote
+ * POST /push - Push to remote
  */
 router.post('/:projectId/push', async (req, res, next) => {
   try {
@@ -95,7 +95,7 @@ router.post('/:projectId/push', async (req, res, next) => {
 });
 
 /**
- * POST /api/git/:projectId/pull - Pull updates
+ * POST /pull - Pull updates
  */
 router.post('/:projectId/pull', async (req, res, next) => {
   try {
@@ -127,7 +127,7 @@ router.post('/:projectId/pull', async (req, res, next) => {
 });
 
 /**
- * GET /api/git/:projectId/status - Get repository status
+ * GET /status - Get repository status
  */
 router.get('/:projectId/status', async (req, res, next) => {
   try {
@@ -147,7 +147,7 @@ router.get('/:projectId/status', async (req, res, next) => {
 });
 
 /**
- * GET /api/git/:projectId/branches - Get branch list
+ * GET /branches - Get branch list
  */
 router.get('/:projectId/branches', async (req, res, next) => {
   try {
@@ -167,7 +167,7 @@ router.get('/:projectId/branches', async (req, res, next) => {
 });
 
 /**
- * POST /api/git/:projectId/branches - Create a new branch
+ * POST /branches - Create a new branch
  */
 router.post('/:projectId/branches', async (req, res, next) => {
   try {
@@ -198,7 +198,7 @@ router.post('/:projectId/branches', async (req, res, next) => {
 });
 
 /**
- * POST /api/git/:projectId/checkout - Switch branch
+ * POST /checkout - Switch branch
  */
 router.post('/:projectId/checkout', async (req, res, next) => {
   try {
@@ -226,7 +226,7 @@ router.post('/:projectId/checkout', async (req, res, next) => {
 });
 
 /**
- * GET /api/git/:projectId/history - Get commit history
+ * GET /history - Get commit history
  */
 router.get('/:projectId/history', async (req, res, next) => {
   try {
@@ -253,7 +253,7 @@ router.get('/:projectId/history', async (req, res, next) => {
 });
 
 /**
- * GET /api/git/:projectId/conflicts - Get conflict files
+ * GET /conflicts - Get conflict files
  */
 router.get('/:projectId/conflicts', async (req, res, next) => {
   try {
@@ -273,7 +273,7 @@ router.get('/:projectId/conflicts', async (req, res, next) => {
 });
 
 /**
- * POST /api/git/:projectId/resolve - Resolve conflicts
+ * POST /resolve - Resolve conflicts
  */
 router.post('/:projectId/resolve', async (req, res, next) => {
   try {

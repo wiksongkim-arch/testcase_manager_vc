@@ -11,7 +11,7 @@
     "test": "tsc -p tsconfig.test.json && npx jest --config jest.config.js --testPathPattern=dist-test"
   },
   "dependencies": {
-    "@testcase-manager/shared": "^0.1.0",
+    "@testcase-manager/shared": "file:../shared",
     "fs-extra": "^11.3.4",
     "isomorphic-git": "^1.37.4"
   },

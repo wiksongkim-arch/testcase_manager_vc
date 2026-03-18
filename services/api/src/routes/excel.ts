@@ -22,10 +22,10 @@ function getSuitesDir(projectId: string): string {
 }
 
 /**
- * POST /api/projects/:projectId/import - 导入 Excel 文件
+ * POST /import - 导入 Excel 文件
  */
 router.post(
-  '/:projectId/import',
+  '/import',
   upload.single('file'),
   async (req, res, next) => {
     try {
@@ -113,9 +113,9 @@ router.post(
 );
 
 /**
- * GET /api/projects/:projectId/export - 导出 Excel 文件
+ * GET /export - 导出 Excel 文件
  */
-router.get('/:projectId/export', async (req, res, next) => {
+router.get('/export', async (req, res, next) => {
   try {
     const { projectId } = req.params;
     const { 
@@ -210,9 +210,9 @@ router.get('/:projectId/export', async (req, res, next) => {
 });
 
 /**
- * GET /api/projects/:projectId/export/:suiteId - 导出特定测试套件
+ * GET /export/:suiteId - 导出特定测试套件
  */
-router.get('/:projectId/export/:suiteId', async (req, res, next) => {
+router.get('/export/:suiteId', async (req, res, next) => {
   try {
     const { projectId, suiteId } = req.params;
     const { format = 'xlsx', sheetName } = req.query as { 

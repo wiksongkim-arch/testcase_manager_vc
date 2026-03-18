@@ -22,9 +22,9 @@ export function createServer(): express.Application {
 
   // API Routes
   app.use('/api/projects', projectsRouter);
-  app.use('/api/projects', excelRouter);
-  app.use('/api/testcases', testCasesRouter);
-  app.use('/api/git', gitRouter);
+  app.use('/api/projects/:projectId/excel', excelRouter);
+  app.use('/api/projects/:projectId/testcases', testCasesRouter);
+  app.use('/api/projects/:projectId/git', gitRouter);
 
   // Error handler (must be last)
   app.use(errorHandler);

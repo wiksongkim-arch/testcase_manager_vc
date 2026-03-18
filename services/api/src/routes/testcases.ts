@@ -24,9 +24,9 @@ function getSuitePath(projectId: string, suiteId: string): string {
 }
 
 /**
- * GET /api/testcases/:projectId/suites - Get all test suites for a project
+ * GET /suites - Get all test suites for a project
  */
-router.get('/:projectId/suites', async (req, res, next) => {
+router.get('/suites', async (req, res, next) => {
   try {
     const { projectId } = req.params;
     const suitesDir = getSuitesDir(projectId);
@@ -67,9 +67,9 @@ router.get('/:projectId/suites', async (req, res, next) => {
 });
 
 /**
- * GET /api/testcases/:projectId/suites/:suiteId - Get test case file content
+ * GET /suites/:suiteId - Get test case file content
  */
-router.get('/:projectId/suites/:suiteId', async (req, res, next) => {
+router.get('/suites/:suiteId', async (req, res, next) => {
   try {
     const { projectId, suiteId } = req.params;
     const suitePath = getSuitePath(projectId, suiteId);
@@ -87,9 +87,9 @@ router.get('/:projectId/suites/:suiteId', async (req, res, next) => {
 });
 
 /**
- * PUT /api/testcases/:projectId/suites/:suiteId - Update test case file
+ * PUT /suites/:suiteId - Update test case file
  */
-router.put('/:projectId/suites/:suiteId', async (req, res, next) => {
+router.put('/suites/:suiteId', async (req, res, next) => {
   try {
     const { projectId, suiteId } = req.params;
     const updates: Partial<TestCaseFile> = req.body;
@@ -115,9 +115,9 @@ router.put('/:projectId/suites/:suiteId', async (req, res, next) => {
 });
 
 /**
- * POST /api/testcases/:projectId/suites - Create a new test suite
+ * POST /suites - Create a new test suite
  */
-router.post('/:projectId/suites', async (req, res, next) => {
+router.post('/suites', async (req, res, next) => {
   try {
     const { projectId } = req.params;
     const { name, description } = req.body;
