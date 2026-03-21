@@ -3,24 +3,31 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# 复制根 package.json
-COPY package*.json ./
+# 安装 git
+RUN apk add --no-cache git
+
+# 安装 pnpm
+RUN npm install -g pnpm
+
+# 复制根 package.json 和 pnpm-lock.yaml
+COPY package*.json pnpm-lock.yaml ./
+COPY .npmrc ./
 
 # 复制 workspace 配置
 COPY packages ./packages
 
 # 安装所有依赖
-RUN npm ci
+RUN pnpm install --frozen-lockfile
 
 # 构建 packages
-RUN npm run build
+RUN pnpm run build
 
 # 复制 Web 服务的 package.json
 COPY apps/web/package*.json ./apps/web/
 
 # 安装 Web 服务依赖
 WORKDIR /app/apps/web
-RUN npm ci
+RUN pnpm install --frozen-lockfile
 
 # 复制 Web 源代码
 COPY apps/web/src ./src
@@ -32,7 +39,7 @@ COPY apps/web/eslint.config.js ./
 COPY apps/web/public ./public
 
 # 构建 Web
-RUN npm run build
+RUN pnpm run build
 
 # 生产阶段
 FROM nginx:alpine
