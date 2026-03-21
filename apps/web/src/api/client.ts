@@ -24,7 +24,18 @@ apiClient.interceptors.request.use(
 // 响应拦截器
 apiClient.interceptors.response.use(
   (response) => {
-    return response.data
+    const data = response.data
+    // 如果响应有 data 字段，返回 data；否则返回整个响应
+    if (data && typeof data === 'object' && 'data' in data) {
+      return data.data
+    }
+    // 如果响应有 projects/testCases 等字段，返回该字段
+    if (data && typeof data === 'object') {
+      if ('projects' in data) return data.projects
+      if ('testCases' in data) return data.testCases
+      if ('project' in data) return data.project
+    }
+    return data
   },
   (error) => {
     if (error.response) {
