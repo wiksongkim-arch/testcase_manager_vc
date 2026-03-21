@@ -21,10 +21,6 @@
     "onCommand:testcase-manager.open"
   ],
   "main": "./dist/extension.js",
-  "files": [
-    "dist/**/*",
-    "README.md"
-  ],
   "contributes": {
     "commands": [
       {

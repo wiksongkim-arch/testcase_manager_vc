@@ -1,0 +1,19 @@
+# 排除父目录
+../**/*
+
+# 排除开发文件
+node_modules/
+.git/
+.vscode/
+*.log
+logs/
+scripts/
+apps/
+services/
+packages/
+.env
+.env.*
+
+# 排除源代码
+tsconfig.json
+src/
