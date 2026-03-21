@@ -115,7 +115,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run build",
-    "build": "tsc && ls dist",
+    "build": "tsc",
     "dev": "node node_modules/typescript/bin/tsc --watch",
     "lint": "eslint src/",
     "package": "vsce package --allow-unused-files-patterns"
