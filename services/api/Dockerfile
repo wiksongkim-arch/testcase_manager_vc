@@ -63,7 +63,7 @@ COPY --from=builder /app/packages ./packages
 COPY services/api/package*.json ./
 
 # 只安装生产依赖
-RUN pnpm install --frozen-lockfile --prod
+RUN pnpm install --prod
 
 # 复制构建产物
 COPY --from=builder /app/services/api/dist ./dist

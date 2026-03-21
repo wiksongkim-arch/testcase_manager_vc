@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+// @ts-ignore - Handsontable React 类型兼容性问题
 import { HotTable } from '@handsontable/react'
 import { registerAllModules } from 'handsontable/registry'
 import type { TestCase } from '../api/types'
