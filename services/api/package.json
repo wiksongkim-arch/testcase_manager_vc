@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "node node_modules/ts-node/dist/bin.js src/index.ts",
+    "dev": "npm run build && node dist/index.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {

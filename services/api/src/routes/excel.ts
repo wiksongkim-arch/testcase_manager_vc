@@ -26,7 +26,7 @@ function getSuitesDir(projectId: string): string {
  */
 router.post(
   '/import',
-  upload.single('file'),
+  upload.single('file') as any,
   async (req, res, next) => {
     try {
       const { projectId } = req.params as { projectId: string };
