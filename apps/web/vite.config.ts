@@ -8,7 +8,9 @@ export default defineConfig({
     jsxRuntime: 'automatic',
     babel: {
       plugins: []
-    }
+    },
+    // 禁用 Fast Refresh 避免构建问题
+    fastRefresh: false
   })],
   resolve: {
     alias: {
