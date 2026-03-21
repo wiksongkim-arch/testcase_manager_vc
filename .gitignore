@@ -64,3 +64,6 @@ Thumbs.db
 apps/vscode-extension/dist/
 apps/vscode-extension/node_modules/
 apps/vscode-extension/package-lock.json
+# Logs
+logs/*.log
+logs/

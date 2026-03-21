@@ -6,14 +6,16 @@
   "license": "Apache-2.0",
   "author": "TestCase Manager Team",
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js 2>&1 | tee logs/build_$(date +%Y-%m-%d).log",
     "build:all": "npm run build && npm run build:web && npm run build:api",
-    "build:web": "cd apps/web && npm run build",
-    "build:api": "cd services/api && npm run build",
-    "dev": "npm run build && concurrently \"npm run dev:api\" \"npm run dev:web\"",
-    "dev:api": "cd services/api && npm run dev",
-    "dev:web": "cd apps/web && npm run dev",
-    "test": "npm run build && cd packages/git-core && npm test"
+    "build:web": "cd apps/web && npm run build 2>&1 | tee ../../logs/build-web_$(date +%Y-%m-%d).log",
+    "build:api": "cd services/api && npm run build 2>&1 | tee ../../logs/build-api_$(date +%Y-%m-%d).log",
+    "dev": "npm run build && concurrently \"npm run dev:api\" \"npm run dev:web\" 2>&1 | tee logs/dev_$(date +%Y-%m-%d).log",
+    "dev:api": "cd services/api && npm run dev 2>&1 | tee ../../logs/dev-api_$(date +%Y-%m-%d).log",
+    "dev:web": "cd apps/web && npm run dev 2>&1 | tee ../../logs/dev-web_$(date +%Y-%m-%d).log",
+    "test": "npm run build && cd packages/git-core && npm test 2>&1 | tee ../../logs/test_$(date +%Y-%m-%d).log",
+    "logs:clean": "rm -rf logs/*.log && echo '日志已清理'",
+    "logs:view": "ls -la logs/"
   },
   "dependencies": {
     "@handsontable/react": "^14.6.2",
