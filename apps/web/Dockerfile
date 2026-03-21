@@ -36,7 +36,9 @@ COPY apps/web/tsconfig.json ./
 COPY apps/web/tsconfig.node.json ./
 COPY apps/web/vite.config.ts ./
 COPY apps/web/eslint.config.js ./
-COPY apps/web/public ./public
+
+# 创建 public 目录（如果不存在）
+RUN mkdir -p ./public
 
 # 构建 Web
 RUN pnpm run build
