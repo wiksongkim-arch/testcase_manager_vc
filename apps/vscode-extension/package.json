@@ -115,10 +115,10 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run build",
-    "build": "tsc",
+    "build": "tsc && ls dist",
     "dev": "node node_modules/typescript/bin/tsc --watch",
     "lint": "eslint src/",
-    "package": "vsce package"
+    "package": "vsce package --allow-unused-files-patterns"
   },
   "dependencies": {
     "axios": "^1.13.6"
