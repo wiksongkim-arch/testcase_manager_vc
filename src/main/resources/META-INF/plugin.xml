@@ -1,0 +1,68 @@
+<idea-plugin>
+    <!-- 插件基本信息 -->
+    <id>com.testcase.manager</id>
+    <name>TestCase Manager</name>
+    <version>1.0.0</version>
+    <vendor>TestCase Manager Team</vendor>
+    
+    <description><![CDATA[
+        <h1>TestCase Manager for PyCharm</h1>
+        <p>为 PyCharm 提供 Excel 风格的测试用例编辑体验。</p>
+        
+        <h2>主要功能</h2>
+        <ul>
+            <li>📊 Excel 风格的表格编辑界面</li>
+            <li>📝 YAML 测试用例文件解析与展示</li>
+            <li>🔄 双向同步（YAML ↔ Excel）</li>
+            <li>📁 Git 集成支持</li>
+        </ul>
+        
+        <h2>使用方法</h2>
+        <ol>
+            <li>打开任意 .yaml 或 .yml 文件</li>
+            <li>编辑器会自动切换为 Excel 表格视图</li>
+            <li>编辑完成后保存即可</li>
+        </ol>
+    ]]></description>
+    
+    <change-notes><![CDATA[
+        <h2>Version 1.0.0</h2>
+        <ul>
+            <li>初始版本发布</li>
+            <li>基础 Excel 编辑器界面</li>
+            <li>YAML 文件类型注册</li>
+        </ul>
+    ]]></change-notes>
+    
+    <!-- 支持的 IntelliJ 平台版本 -->
+    <idea-version since-build="223.0"/>
+    
+    <!-- 依赖的插件和模块 -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+    
+    <!-- 扩展点定义 -->
+    <extensions defaultExtensionNs="com.intellij">
+        
+        <!-- 文件类型工厂 -->
+        <fileTypeFactory 
+            implementation="com.testcase.manager.yaml.YamlFileTypeFactory"/>
+        
+        <!-- 文件编辑器提供器 -->
+        <fileEditorProvider 
+            implementation="com.testcase.manager.ui.ExcelEditorProvider"/>
+        
+        <!-- 启动活动 -->
+        <startupActivity 
+            implementation="com.testcase.manager.TestCaseManagerPlugin"/>
+        
+    </extensions>
+    
+    <!-- 操作定义 -->
+    <actions>
+        <!-- 可以在这里添加菜单项和工具栏按钮 -->
+        
+    </actions>
+    
+</idea-plugin>
